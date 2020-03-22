@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Waste Management {% endblock title %}</title>
+    <meta name='author' content='Waste Management'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class='container'>
+        <ul class="nav nav-tabs">
+            <li><a href='#'>Menu 1</a></li>
+            <li><a href='#'>Menu 2</a></li>
+            <li><a href='#'>Menu 3</a></li>
+        </ul>
+    </div>
+    <div>
+        <form action='/add_waste/' method='POST'>
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value='go'>
+        </form>
+    </div>
+    <div>
+    {% block content %} {% endblock content %}
+    </div>
+</body>
+</html>

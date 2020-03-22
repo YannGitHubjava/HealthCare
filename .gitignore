@@ -1,0 +1,41 @@
+# Byte-compiled /optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+
+# Distribution / packaging
+bin/
+build/
+develop-egss/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetest.sml
+coverage.xml
+
+# translations
+*.mo
+
+# database
+*.sqlite3
+
+# environment
+venv
+
