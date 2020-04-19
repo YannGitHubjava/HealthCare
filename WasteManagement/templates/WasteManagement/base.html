@@ -2,7 +2,7 @@
 <html lang="eng">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %} Waste Management {% endblock title %}</title>
+    <title>{% block title %} {% endblock title %}</title>
     <meta name='author' content='Waste Management'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
@@ -13,20 +13,23 @@
 <body>
     <div class='container'>
         <ul class="nav nav-tabs">
-            <li><a href='#'>Menu 1</a></li>
-            <li><a href='#'>Menu 2</a></li>
-            <li><a href='#'>Menu 3</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href='#'>Manage Your Waste</a></li>
+            <li><a href="{% url 'all_waste' %}">All Waste Report</a></li>
+            
         </ul>
+        <span>
+            <ul class='nav'>
+                {% if user.is_authenticated %}
+                    <p> {{user.username}}</p>
+                    <li><a href="{% url 'logout' %} ">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %} ">Login</a></li>
+                    <li><a href="{% url 'signup' %} ">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </span>
     </div>
-    <div>
-        <form action='/add_waste/' method='POST'>
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value='go'>
-        </form>
-    </div>
-    <div>
     {% block content %} {% endblock content %}
-    </div>
 </body>
 </html>

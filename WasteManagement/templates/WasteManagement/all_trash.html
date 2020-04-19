@@ -1,8 +1,28 @@
-{% include 'base.html' %}
+{% extends './base.html' %}
 {% block title %} All Waste {% endblock title %}
 
 {% block content %}
-    <div>
-        <h1>I'm here</h1>
+    <div class='container'>
+        <div>
+            {% if data is not None %}
+                <table>
+                    <tr>
+                    {% for k in data.keys %}
+                    <th>k</th>
+                    {% endfor %}
+                    </tr>
+                    {% for v in data.values %}
+                        <tr>
+                            <td>v</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <h1>No waste data recorded. Please add Waste</h1>
+            {% endif %}
+        </div>
+        <div>
+            <a href="{% url 'add_waste' %}">Add Waste</a>
+        </div>
     </div>
 {% endblock content %}
